@@ -18,3 +18,5 @@ class Encrypt:
 
     def characterize(self,hexes:List[int]) -> str:
         return ''.join([chr(hex) for hex in hexes])
+
+# For Commit

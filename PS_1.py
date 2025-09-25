@@ -11,3 +11,5 @@ enc = Encrypt(["bitcoin","This is such a great class"])
 
 #print(enc.message['hex'][1])
 message = enc.XOR_bitwise_encrypting(enc.message['hex'][1])
+
+# FOr commit
