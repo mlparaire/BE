@@ -96,10 +96,6 @@ class Hash_func():
         # nonce is incremented each time we fail to find a correct hash
         while not(self.algoritm((self.message+str(nonce)).encode()).hexdigest().startswith(str('0' * complexity))):
             # Note that we use the walrus operator
-            print(self.algoritm((self.message+str(nonce)).encode()).hexdigest()) if self.algoritm((self.message+str(nonce)).encode()).hexdigest().startswith('0') else ''
             nonce += 1
         end_time = time() ## We note the end time
         return self.message+str(nonce),sha256((self.message + str(nonce)).encode()).hexdigest(),nonce,"Execution time ~ {0:.2f} seconds ".format(end_time-start_time)
-
-    def parralelized_work(self,complexity:int) -> tuple:
-        pass
