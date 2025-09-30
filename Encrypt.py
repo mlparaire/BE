@@ -8,8 +8,7 @@ from cryptography.exceptions import InvalidSignature
 from hashlib import sha256
 from time import time
 import os
-import multiprocessing as mp
-from concurrent.futures import ProcessPoolExecutor
+from numba import njit
 from binascii import hexlify ,unhexlify
 
 # We define a custom type vector for our functions
@@ -90,6 +89,7 @@ class Hash_func():
     ## The function returns a tuple with the message and the number of nonce, the hash and the time taken for the resolution
     def compute_hash(self,complexity : int) -> tuple:
          ## Here, we define the prefix
+        print(f'Computing for {complexity} 0')
         nonce = 0 ## Here, we define the number of nonce
         start_time = time() ## To compute the total time spent on the problem, we save the starting time
         # To check every hash until we find one that fits our needs, we use a while loop that stops whence a hash function with the correct liminary zeros is found.

@@ -1,0 +1,11 @@
+For the computation of a proof of work with 5 leading zeros, the results are :
+Message M = Paraire:"DigitalEconomics":354042
+Hash = 00000fd41c1dedd3a36ad120fee941ada83b7a2cf2de6978337d53712abdaa78
+Number of nonce = 354042
+Execution time ~ 0.51 seconds 
+
+For the computation of a proof of work with 6 leading zeros, the results are :
+Message M = Paraire:"DigitalEconomics":3828645
+Hash = 000000dfed5698739c8ac51b9207b0b4d6332f0be64eac2df61590e8bd20ff2c
+Number of nonce = 3828645
+Execution time ~ 5.67 seconds 
