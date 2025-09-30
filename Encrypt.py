@@ -1,5 +1,5 @@
 # We import all the packages we need
-from typing import List
+from typing import List,Generator
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import padding
 from cryptography.hazmat.primitives import hashes
@@ -120,6 +120,7 @@ class Hash_func():
     @classmethod
     def get_number_of_cpu(cls) -> str:
         return f'The numbre of CPU is {mp.cpu_count()}'
-    def compute_hashes_increment(self,complexity:List[int]) -> tuple:
+    def compute_hashes_increment(self,complexity:List[int]) -> Generator[tuple]:
         for complex in complexity:
             yield self.compute_hash(complex)
+
