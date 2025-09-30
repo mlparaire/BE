@@ -8,7 +8,7 @@ from cryptography.exceptions import InvalidSignature
 from hashlib import sha256
 from time import time
 import os
-from numba import njit
+import multiprocessing as mp
 from binascii import hexlify ,unhexlify
 
 # We define a custom type vector for our functions
@@ -49,14 +49,15 @@ class Encrypt:
 class PKE:
     def __init__(self,message:str):
         self.__public_key_b = serialization.load_pem_public_key(bytes(open('public_key.pem').read().encode('utf8'))) # Here, we load the public key from Louis Bertucci's website. Note that we load it as a private variable
-        if not {'private_key_paraire_23300561.pem', 'public_key_paraire_23300561.pem'}.issubset(os.listdir()): # Here, we check that we haven't created keys pairs for this exercice already
+        if not {'private_key_paraire_22300561.pem', 'public_key_paraire_22300561.pem'}.issubset(os.listdir()): # Here, we check that we haven't created keys pairs for this exercice already
             self.__private_key = RSA.generate_private_key(public_exponent=65537,key_size=2048) # If not already create, we creat the private key. We also load it as a private variable
             self.public_key = self.__private_key.public_key() # We derive the public key from the private key
-            open('private_key_paraire_23300561.pem','wb').write(self.__private_key.private_bytes(encoding=serialization.Encoding.PEM,format = serialization.PrivateFormat.TraditionalOpenSSL, encryption_algorithm=serialization.NoEncryption())) # To save the newly created keys, we save them both inside distincts pem files
-            open('public_key_paraire_23300561.pem','wb').write(self.public_key.public_bytes(encoding=serialization.Encoding.PEM,format = serialization.PublicFormat.SubjectPublicKeyInfo))
+            open('private_key_paraire_22300561.pem', 'wb').write(self.__private_key.private_bytes(encoding=serialization.Encoding.PEM, format = serialization.PrivateFormat.TraditionalOpenSSL, encryption_algorithm=serialization.NoEncryption())) # To save the newly created keys, we save them both inside distincts pem files
+            open('public_key_paraire_22300561.pem', 'wb').write(self.public_key.public_bytes(encoding=serialization.Encoding.PEM, format = serialization.PublicFormat.SubjectPublicKeyInfo))
         else: # Here, if we have already created they keys, we simply load them.
-            self.__private_key = serialization.load_pem_private_key(open('private_key_paraire_23300561.pem','rb').read(),password=None)
-            self.public_key = serialization.load_pem_public_key(bytes(open('public_key_paraire_23300561.pem').read().encode('utf8')))
+            self.__private_key = serialization.load_pem_private_key(open('private_key_paraire_22300561.pem', 'rb').read(), password=None)
+            self.public_key = serialization.load_pem_public_key(bytes(open(
+                'public_key_paraire_22300561.pem').read().encode('utf8')))
         self.message = message.encode()
     ## With the function RSA_public_key_encryption, we encrypt message as a string in hexadecimal form.
     ## To do so, we use Louis Bertucci's public key to encrypt our message. Only Louis Bertucci's private key will be able to decipher the message
@@ -104,7 +105,7 @@ class Hash_func():
         print(f'Computing for {complexity} 0')
         nonce = 0 ## Here, we define the number of nonce
         start_time = time() ## To compute the total time spent on the problem, we save the starting time
-        # To check every hash until we find one that fits our needs, we use a while loop that stops when a hash function with the correct liminary zeros is found.
+        # To check every hash until we find one that fits our needs, we use a while loop that stops whence a hash function with the correct liminary zeros is found.
         # nonce is incremented each time we fail to find a correct hash
 #        while not(self.algoritm((self.message+str(nonce)).encode()).hexdigest().startswith(str('0' * complexity))):
         while True:
@@ -115,5 +116,10 @@ class Hash_func():
             # Note that we use the walrus operator as to create and check the digest at the same time
             nonce += 1
         end_time = time() ## We note the end time
-        return self.message+str(nonce),sha256((self.message + str(nonce)).encode()).hexdigest(),nonce,"Execution time ~ {0:.2f} seconds ".format(end_time-start_time),format(int.from_bytes(digest, "big"), "0256b")
-
+        return self.message+str(nonce),sha256((self.message + str(nonce)).encode()).hexdigest(),nonce,"Execution time ~ {0:.2f} seconds ".format(end_time-start_time),format(int.from_bytes(digest, "big"), "0256b"),complexity
+    @classmethod
+    def get_number_of_cpu(cls) -> str:
+        return f'The numbre of CPU is {mp.cpu_count()}'
+    def compute_hashes_increment(self,complexity:List[int]) -> tuple:
+        for complex in complexity:
+            yield self.compute_hash(complex)

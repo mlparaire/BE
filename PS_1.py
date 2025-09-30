@@ -56,9 +56,9 @@ print(message)
 # Question 2
 print('Question 2 \n')
 # We load the class Hash_func, that contains the hashing SHA256 algorithm
-test = Hash_func()
+hash = Hash_func()
 # We attempt to compute hashes that meets 5 and 10 liminary zeros, and save the result
-response,second_response= test.compute_hash(5),test.compute_hash(10)
+response,second_response= hash.compute_hash(5),hash.compute_hash(10)
 with open('Exercice_2_answer_Paraire_22300561.txt','wb') as ex:
     ex.write(b'For the computation of a proof of work with 5 leading zeros, the results are :\n')
     ex.write((("Message M = "+response[0]+'\nHash = '+response[1]+'\nNumber of nonce = '+str(response[2])+"\n"+response[3]+ "\nBytes:" + response[4]).encode()))
@@ -66,3 +66,17 @@ with open('Exercice_2_answer_Paraire_22300561.txt','wb') as ex:
     ex.write(b'For the computation of a proof of work with 10 leading zeros, the results are :\n')
     ex.write((("Message M = " + second_response[0] + '\nHash = ' + second_response[ 1] + '\nNumber of nonce = ' + str(second_response[2]) + "\n" + second_response[3] + "\nBytes:" + second_response[4]).encode()))
     ex.close()
+
+## Question 3
+
+print(hash.get_number_of_cpu())
+## To see how fast can we go with computing bits, we can try to increment complexity with leading zeros
+y = hash.compute_hashes_increment(list(range(100)))
+with open('incrementation.txt','wb') as an:
+    for i in y:
+        an.write((("Leading zeros = "+ str(i[5])+"\nMessage M = " + i[0] + '\nHash = ' + i[1] + '\nNumber of nonce = ' + str(i[2]) + "\n" + i[3] + "\nBytes:" +i[4]).encode()))
+        an.write(b'\n\n')
+    an.close()
+
+## When we look at the transcript, we see that the computer starts to lag at the 25 leading zeros.
+## It then takes exponentially more time to compute the next leading zero
