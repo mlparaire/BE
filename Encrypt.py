@@ -104,7 +104,7 @@ class Hash_func():
         print(f'Computing for {complexity} 0')
         nonce = 0 ## Here, we define the number of nonce
         start_time = time() ## To compute the total time spent on the problem, we save the starting time
-        # To check every hash until we find one that fits our needs, we use a while loop that stops whence a hash function with the correct liminary zeros is found.
+        # To check every hash until we find one that fits our needs, we use a while loop that stops when a hash function with the correct liminary zeros is found.
         # nonce is incremented each time we fail to find a correct hash
 #        while not(self.algoritm((self.message+str(nonce)).encode()).hexdigest().startswith(str('0' * complexity))):
         while True:
@@ -112,7 +112,8 @@ class Hash_func():
                 print(digest.hex())
                 print(format(int.from_bytes(digest,"big"),'0256b'))
                 break
-            # Note that we use the walrus operator
+            # Note that we use the walrus operator as to create and check the digest at the same time
             nonce += 1
         end_time = time() ## We note the end time
         return self.message+str(nonce),sha256((self.message + str(nonce)).encode()).hexdigest(),nonce,"Execution time ~ {0:.2f} seconds ".format(end_time-start_time),format(int.from_bytes(digest, "big"), "0256b")
+
