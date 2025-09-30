@@ -58,7 +58,7 @@ print('Question 2 \n')
 # We load the class Hash_func, that contains the hashing SHA256 algorithm
 test = Hash_func()
 # We attempt to compute hashes that meets 5 and 10 liminary zeros, and save the result
-response,second_response= test.compute_hash(5),test.compute_hash(6)
+response,second_response= test.compute_hash(5),test.compute_hash(10)
 with open('Exercice_2_answer_Paraire_22300561.txt','wb') as ex:
     ex.write(b'For the computation of a proof of work with 5 leading zeros, the results are :\n')
     ex.write((("Message M = "+response[0]+'\nHash = '+response[1]+'\nNumber of nonce = '+str(response[2])+"\n"+response[3]).encode()))
