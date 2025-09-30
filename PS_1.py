@@ -29,7 +29,7 @@ pke = PKE("The message is fragments.lameness.clowns")
 ## Part 1
 # We use the class function RSA_public_key_encryption to encrypt a message
 __SECRET_MESSAGE = open('secret_message.txt').read()
-message_for_b = pke.RSA_public_key_encryption(bytes(__SECRET_MESSAGE.encode()))
+message_for_b = pke.RSA_public_key_encryption(b"Dear Professor Bertucci\n, here's my message: Les sanglots longs des violons de l'automne \n blessent mon coeur d'un langueur monotone")
 print(f'The message, in hexadecimal form is:\n{message_for_b}')
 
 ## Part 2
@@ -61,8 +61,8 @@ test = Hash_func()
 response,second_response= test.compute_hash(5),test.compute_hash(10)
 with open('Exercice_2_answer_Paraire_22300561.txt','wb') as ex:
     ex.write(b'For the computation of a proof of work with 5 leading zeros, the results are :\n')
-    ex.write((("Message M = "+response[0]+'\nHash = '+response[1]+'\nNumber of nonce = '+str(response[2])+"\n"+response[3]).encode()))
+    ex.write((("Message M = "+response[0]+'\nHash = '+response[1]+'\nNumber of nonce = '+str(response[2])+"\n"+response[3]+ "\nBytes:" + response[4]).encode()))
     ex.write(b'\n\n')
     ex.write(b'For the computation of a proof of work with 10 leading zeros, the results are :\n')
-    ex.write((("Message M = " + second_response[0] + '\nHash = ' + second_response[ 1] + '\nNumber of nonce = ' + str(second_response[2]) + "\n" + second_response[3]).encode()))
+    ex.write((("Message M = " + second_response[0] + '\nHash = ' + second_response[ 1] + '\nNumber of nonce = ' + str(second_response[2]) + "\n" + second_response[3] + "\nBytes:" + second_response[4]).encode()))
     ex.close()

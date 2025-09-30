@@ -87,6 +87,18 @@ class Hash_func():
     ## With the function compute_hash, we seek to imitate a proof-of-work resolution
     ## We call the function with the complexity variable, that defines the number of liminary zeros in the hash
     ## The function returns a tuple with the message and the number of nonce, the hash and the time taken for the resolution
+
+    def has_leading_zeros(self,digest: bytes, bits: int) -> bool:
+        full_bytes = bits // 8
+        remaining_bits = bits % 8
+
+        if digest[:full_bytes] != b'\x00' * full_bytes:
+            return False
+
+        if remaining_bits > 0:
+            next_byte = digest[full_bytes]
+            return next_byte >> (8 - remaining_bits) == 0
+        return True
     def compute_hash(self,complexity : int) -> tuple:
          ## Here, we define the prefix
         print(f'Computing for {complexity} 0')
@@ -94,8 +106,13 @@ class Hash_func():
         start_time = time() ## To compute the total time spent on the problem, we save the starting time
         # To check every hash until we find one that fits our needs, we use a while loop that stops whence a hash function with the correct liminary zeros is found.
         # nonce is incremented each time we fail to find a correct hash
-        while not(self.algoritm((self.message+str(nonce)).encode()).hexdigest().startswith(str('0' * complexity))):
+#        while not(self.algoritm((self.message+str(nonce)).encode()).hexdigest().startswith(str('0' * complexity))):
+        while True:
+            if self.has_leading_zeros((digest := self.algoritm((self.message + str(nonce)).encode()).digest()), complexity):
+                print(digest.hex())
+                print(format(int.from_bytes(digest,"big"),'0256b'))
+                break
             # Note that we use the walrus operator
             nonce += 1
         end_time = time() ## We note the end time
-        return self.message+str(nonce),sha256((self.message + str(nonce)).encode()).hexdigest(),nonce,"Execution time ~ {0:.2f} seconds ".format(end_time-start_time)
+        return self.message+str(nonce),sha256((self.message + str(nonce)).encode()).hexdigest(),nonce,"Execution time ~ {0:.2f} seconds ".format(end_time-start_time),format(int.from_bytes(digest, "big"), "0256b")
