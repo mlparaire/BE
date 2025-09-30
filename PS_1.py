@@ -79,4 +79,5 @@ with open('incrementation.txt','wb') as an:
     an.close()
 
 ## When we look at the transcript, we see that the computer starts to lag at the 25 leading zeros.
-## It then takes exponentially more time to compute the next leading zero
+
+## It then takes exponentially more time to compute the next number of leading zero
