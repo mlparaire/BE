@@ -1,17 +1,29 @@
-## Blockchain Economics Problem Set 1
+## Blockchain Economics Problem Set 2
 
-This repository contains the code for Problem Set 1 for Martin PARAIRE - 22300561
+This repository contains the code for Problem Set 1 and 2 for Martin PARAIRE - 22300561
 
-The problems are computed by the classes inside the Encrypt.py file (Encrypt, PKE and Hash_fun), and are used within the PS_1.py file
+The problems are computed by the class P2PKH inside the P2PKH.py file, and are used within the PS2.py file
 
 ## Ancillary files
 
-Attached to these files are my public key public_key_paraire_22300561.pem and my private key private_key_paraire_23300561.pem, used in Question 2 of exercice 1
+The github is composed as follows:
+
+
+├───PS1
+└───PS_2
+    ├───data
+        ├───pbset2_key.wif
+    ├───P2PKH.py
+    ├───PS2.py
+    ├───output.txt
+    └───__pycache__
+
+Inside the folder ./data is located private key that is created if my private key is not available.
+I use a docker image on my VPS to fetch my private key 
+
 
 ## Output
 
-The output for each question can be found in the file Message and Output, where one can find the encrypted messages for question 2
+The output for each question can be found in the file output.txt, where one can find the transaction id for question 1, as well as the transaction scripts and the public key for Exercice 2
 
-The output for hash computation of Exercise 2 can be found in the text file Exercise_2_answer_Paraire_22300561.txt
 
-The output for hash with incrementing complexity for Exercise 2 Question 3 is in increment.txt
