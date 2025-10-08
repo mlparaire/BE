@@ -8,6 +8,7 @@ The problems are computed by the class P2PKH inside the P2PKH.py file, and are u
 
 The github is composed as follows:
 
+└───PS_1
 └───PS_2
     ├───data
         ├───pbset2_key.wif
