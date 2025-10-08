@@ -1,0 +1,19 @@
+## Question 1
+Fetching data for a transaction of 420000
+Fetching from transaction 8db9c194d95c79f0a687279fad7bbfd7d0fe4ea932386b79136577577b2455c3, we have : 191516 satoshis available
+Fetching from transaction 0fbfa1f3edf73013a4e837033e882d99178e42b58bade33bc1d1c982d93e8178, we have : 152634 satoshis available
+Fetching from transaction 1e440bfd940dde41413172055a88db50b0bffe2e0b3b09937ddf58676c7b99ea, we have : 138767 satoshis available
+Estimated fees are 522
+The signed transaction script is {'inputs': [{'txid': '8db9c194d95c79f0a687279fad7bbfd7d0fe4ea932386b79136577577b2455c3', 'txout_index': 0, 'script_sig': ['OP_0', '304402201a6439049e6a81dee2b89b5e8ecb99225b7a3c3fa50ced8971002031ff0c718802206721ef8e591ae3f044a9ad5d230afec2bbe69a9e45eb837caa8571c7c5f44c9301', ['OP_2', '02019662a808d4a0df7e8c1ee8b26646e59cfaa92ebd906bde14b4bda5113fa2a9', '035c5f4cf661abc5ad49e23a07a500c2d391e73dba7d1f2c8209d744bce8d943cd', 'OP_2', 'OP_CHECKMULTISIG']], 'sequence': 'fdffffff'}, {'txid': '0fbfa1f3edf73013a4e837033e882d99178e42b58bade33bc1d1c982d93e8178', 'txout_index': 1, 'script_sig': [], 'sequence': 'fdffffff'}, {'txid': '1e440bfd940dde41413172055a88db50b0bffe2e0b3b09937ddf58676c7b99ea', 'txout_index': 1, 'script_sig': [], 'sequence': 'fdffffff'}], 'outputs': [{'amount': 62395, 'script_pubkey': ['OP_DUP', 'OP_HASH160', 'd78569a891443fe51652a67723707aca17204ece', 'OP_EQUALVERIFY', 'OP_CHECKSIG']}, {'amount': 420000, 'script_pubkey': ['OP_DUP', 'OP_HASH160', '7a0f17f08359d9bff71ad97f1eb39b694ad67c04', 'OP_EQUALVERIFY', 'OP_CHECKSIG']}], 'has_segwit': False, 'witnesses': [], 'locktime': '00000000', 'version': '02000000'}
+The signature is 304402201a6439049e6a81dee2b89b5e8ecb99225b7a3c3fa50ced8971002031ff0c718802206721ef8e591ae3f044a9ad5d230afec2bbe69a9e45eb837caa8571c7c5f44c9301
+The multi_signature_script is ['OP_2', '02019662a808d4a0df7e8c1ee8b26646e59cfaa92ebd906bde14b4bda5113fa2a9', '035c5f4cf661abc5ad49e23a07a500c2d391e73dba7d1f2c8209d744bce8d943cd', 'OP_2', 'OP_CHECKMULTISIG']
+
+## Question 2:
+Fetching data for a transaction of 420000
+Fetching from transaction 8db9c194d95c79f0a687279fad7bbfd7d0fe4ea932386b79136577577b2455c3, we have : 191516 satoshis available
+Fetching from transaction 0fbfa1f3edf73013a4e837033e882d99178e42b58bade33bc1d1c982d93e8178, we have : 152634 satoshis available
+Fetching from transaction 1e440bfd940dde41413172055a88db50b0bffe2e0b3b09937ddf58676c7b99ea, we have : 138767 satoshis available
+Estimated fees are 522
+The unsigned transaction script is {'inputs': [{'txid': '8db9c194d95c79f0a687279fad7bbfd7d0fe4ea932386b79136577577b2455c3', 'txout_index': 0, 'script_sig': [], 'sequence': 'fdffffff'}, {'txid': '0fbfa1f3edf73013a4e837033e882d99178e42b58bade33bc1d1c982d93e8178', 'txout_index': 1, 'script_sig': [], 'sequence': 'fdffffff'}, {'txid': '1e440bfd940dde41413172055a88db50b0bffe2e0b3b09937ddf58676c7b99ea', 'txout_index': 1, 'script_sig': [], 'sequence': 'fdffffff'}], 'outputs': [{'amount': 62395, 'script_pubkey': ['OP_DUP', 'OP_HASH160', 'd78569a891443fe51652a67723707aca17204ece', 'OP_EQUALVERIFY', 'OP_CHECKSIG']}, {'amount': 420000, 'script_pubkey': ['OP_DUP', 'OP_HASH160', '853d5a191fd2ab19ebbd9519a696e5f30f7d1197', 'OP_EQUALVERIFY', 'OP_CHECKSIG']}], 'has_segwit': False, 'witnesses': [], 'locktime': '00000000', 'version': '02000000'}
+The signature is 304402204ab271af41847837740416bcf1e192ce35f0d2c71b74a0f739478880fc896928022054062f56e7cc97b6b60284bb490be2dd26d389855faf7004759f5a2f28b2afa601
+The multi_signature_script is ['OP_2', '02019662a808d4a0df7e8c1ee8b26646e59cfaa92ebd906bde14b4bda5113fa2a9', '035c5f4cf661abc5ad49e23a07a500c2d391e73dba7d1f2c8209d744bce8d943cd', 'OP_2', 'OP_CHECKMULTISIG']
