@@ -1,3 +1,8 @@
+# Exercice 1:
+
+The transaction was was successfully broadcasted with transaction id 1e440bfd940dde41413172055a88db50b0bffe2e0b3b09937ddf58676c7b99ea
+
+# Exercice 2
 ## Question 1
 Fetching data for a transaction of 420000
 Fetching from transaction 8db9c194d95c79f0a687279fad7bbfd7d0fe4ea932386b79136577577b2455c3, we have : 191516 satoshis available

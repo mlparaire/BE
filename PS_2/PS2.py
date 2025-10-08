@@ -10,10 +10,10 @@ __SECOND_ADDRESS_FROM_BERTUCCI = "msfTfNj6FicTNBShCJBhoxvhHoM794cKsZ"
 Wallet = P2PKH(__PUBLIC_KEY_FROM_BERTUCCI,__FIRST_ADDRESS_FROM_BERTUCCI,__SECOND_ADDRESS_FROM_BERTUCCI)
 
 # Exercice 1 - Simple P2PKH
-#transaction,txid = Wallet.send_to_address(0.00055)
-#result = Wallet.broadcast(transaction)
-#if result:
-#    print(f'The transaction was successfully broadcasted with transaction id :{result}')
+transaction,txid = Wallet.send_to_address(0.00055)
+result = Wallet.broadcast(transaction)
+if result:
+    print(f'The transaction was successfully broadcasted with transaction id :{result}')
 # The transaction was was successfully broadcasted with transaction id 1e440bfd940dde41413172055a88db50b0bffe2e0b3b09937ddf58676c7b99ea
 
 # Exercice 2 - MultiSignature
